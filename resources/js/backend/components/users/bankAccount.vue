@@ -12,7 +12,7 @@
 
 
                 <div class="long-title">
-                    <p style="    background: red;
+                    <p style="    background: #79D800;
     color: white;">{{ $t('Please_input_bank_account_information.value') }} </p>
                 </div>
                 <div class="container-fluid">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="container-fluid">
                     <div class="form-group">
-                        <label><span class="require">*</span> {{ $t('Bank_account.value') }} (Bkash/Nagod/USDT)</label>
+                        <label><span class="require">*</span> {{ $t('Bank_account.value') }} (Bkash/Nagod)</label>
                         <input type="text" v-model="row.user.Bank_account" class="form-control"
                             placeholder="Please add an account" :readonly="readonly" required>
                     </div>
@@ -34,8 +34,8 @@
 
                 <div class="container-fluid">
 
-                    <input type="checkbox" class="checkbox"><span>{{ $t('agr.value') }}</span>
-                    <p class="det">{{ $t('BW.value') }}</p>
+                    <!-- <input type="checkbox" class="checkbox"><span>{{ $t('agr.value') }}</span>
+                    <p class="det">{{ $t('BW.value') }}</p> -->
                     <input type="submit" class="savedata" value="Save information">
                 </div>
             </form>

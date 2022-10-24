@@ -48,45 +48,49 @@
             <!-- <div class="container-fluid"> -->
 
                 <ul>
-                    <li><router-link :to="{name:'license'}" class="accountList odd listCompanny " ><img src="https://petpat.lv/wp-content/uploads/2018/12/license-icon-27934542-2.png">
-                            <p>{{ $t('Company_Profile.value') }}</p></router-link>
-                    </li>
+                    <!-- <li><router-link :to="{name:'license'}" class="accountList odd listCompanny " ><i class="fas fa-id-card"></i>
+                            <p>{{ $t('Company_Profile.value') }} </p></router-link>
+                    </li> -->
 
-                    <li><router-link :to="{name:'information'}" class="accountList even listInformaion"><img :src="$asseturl+'frontend/img/inf.png'">
+                    <li><router-link :to="{name:'information'}" class="accountList even listInformaion"><i class="fas fa-info-circle"></i>
                             <p>{{ $t('Information.value') }}</p>
                         </router-link></li>
-                    <li><router-link :to="{name:'orders'}" class="accountList odd listorder"><img :src="$asseturl+'frontend/img/order.png'">
+                    <li><router-link :to="{name:'orders'}" class="accountList odd listorder"><i class="fas fa-clipboard-list"></i>
                             <p>{{ $t('Order_Record.value') }}</p>
                         </router-link></li>
-                    <li><router-link :to="{name:'rechargeHistory'}" class="accountList even listReHis"><img :src="$asseturl+'frontend/img/rech.png'">
+                    <li><router-link :to="{name:'rechargeHistory'}" class="accountList even listReHis"><i class="fas fa-money-check-alt"></i>
                             <p>{{ $t('Recharge_History.value') }}</p>
                         </router-link></li>
-                    <li><router-link :to="{name:'WithdrawHistory'}" class="accountList odd listWithHis"><img :src="$asseturl+'frontend/img/with.png'">
+                    <li><router-link :to="{name:'WithdrawHistory'}" class="accountList odd listWithHis"><i class="fas fa-money-bill-alt"></i>
                             <p>{{ $t('Withdraw_History.value') }}</p>
                         </router-link></li>
                     <!-- <li><router-link :to="{name:'help'}"><img :src="$asseturl+'frontend/img/ann.png'">
                             <p>Announcement</p>
                         </router-link></li> -->
 
-                    <li><router-link :to="{name:'invite'}" class="accountList even listInvite"><img :src="$asseturl+'frontend/img/5811623.png'">
+                    <li><router-link :to="{name:'invite'}" class="accountList even listInvite"><i class="fas fa-plus"></i>
                             <p>{{ $t('Invite.value') }}</p>
                         </router-link></li>
 
-                    <li v-if="settings.telegroup"><a :href="settings.telegroup" class="accountList odd listTeleGroup" target="_blank"><img :src="$asseturl+'frontend/img/Telegram.png'">
+                    <li v-if="settings.telegroup"><a :href="settings.telegroup" class="accountList odd listTeleGroup" target="_blank"><i class="fab fa-telegram"></i>
                             <p>{{ $t('Official_Telegram_Group.value') }}</p>
                         </a></li>
 
-                    <li v-if="settings.telesupport1"><a :href="settings.telesupport1" class="accountList even listCus1" target="_blank"><img :src="$asseturl+'frontend/img/aGroup.jpeg'">
+                    <li v-if="settings.telesupport1"><a :href="settings.telesupport1" class="accountList even listCus1" target="_blank"><i class="far fa-question-circle"></i>
                             <p>{{ $t('Customer_Service.value') }} 1</p></a>
                     </li>
 
-                    <li v-if="settings.telesupport2"><a :href="settings.telesupport2" class="accountList odd listCus2" target="_blank"><img src="https://cdn5.vectorstock.com/i/1000x1000/01/69/businesswoman-character-avatar-icon-vector-12800169.jpg">
+                    <li v-if="settings.telesupport2"><a :href="settings.telesupport2" class="accountList odd listCus2" target="_blank"><i class="far fa-question-circle"></i>
                             <p>{{ $t('Customer_Service.value') }} 2</p></a>
                     </li>
 
-                    <li v-if="settings.telesupport3"><a :href="settings.telesupport3" class="accountList even listCus3" target="_blank"><img src="https://cdn5.vectorstock.com/i/1000x1000/01/69/businesswoman-character-avatar-icon-vector-12800169.jpg">
-                            <p>{{ $t('Customer_Service.value') }} 2</p></a>
+                    <li v-if="settings.telesupport3"><a :href="settings.telesupport3" class="accountList even listCus3" target="_blank"><i class="far fa-question-circle"></i>
+                            <p>{{ $t('Customer_Service.value') }} 3</p></a>
                     </li>
+
+                    <li><router-link :to="{name:'logout'}" class="accountList even listInvite"><i class="fas fa-sign-out-alt"></i>
+                            <p>{{ $t('Log_out.value') }}</p>
+                        </router-link></li>
 
 
 <!--
@@ -100,7 +104,7 @@
 
 
                 </ul>
-                <router-link :to="{name:'logout'}" class="logout">{{ $t('Log_out.value') }}</router-link>
+                <!-- <router-link :to="{name:'logout'}" class="logout">{{ $t('Log_out.value') }}</router-link> -->
             <!-- </div> -->
 
 
@@ -151,8 +155,8 @@ export default {
 <style>
 
 section.accontDetails {
-    background: #008dff;
-    color: white;
+    background: #ffffff;
+    color: black;
     padding: 32px 16px;
     margin-top: -40px;
 }
@@ -162,11 +166,11 @@ a.accountList {
 }
 
 a.accountList.odd {
-    background: #003cff !important;
+    background: #3c790b !important;
 }
 
 a.accountList.even {
-    background: #af5016 !important;
+    background: #3c790b !important;
 }
 
 

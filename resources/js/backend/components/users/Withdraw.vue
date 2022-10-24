@@ -25,7 +25,7 @@
                             <input type="tel" class="form-control" @input="checkAmount(form.amount)"
                                 v-model="form.amount">
                         </div>
-                        <p> Available Balance : {{  user.user.balance - settings.new_regitration  }} </p>
+                        <p> Available Balance : {{  user.user.balance }} </p>
                         <!-- <div class="row">
                             <div class="col-6 amount_item" @click="checkAmount(500)"><span>500</span> </div>
                             <div class="col-6 amount_item" @click="checkAmount(1000)"><span>1000</span></div>
@@ -38,9 +38,9 @@
                             <button class="btn btn-info" v-if="bankcardAlert" disabled >Wait...</button>
                             <button class="btn btn-info" v-else @click="nextFun(2)">Next</button>
                         </div>
-                        <p style="color: red;text-align: center;font-size: 17px;">প্রত্যাহার সময় সপ্তাহের সোমবার থেকে শুক্রবার দুপর ০২:০০ থেকে রাত ০৬:০০ টা পর্যন্ত </p>
-                        <p style="color: red;text-align: center;font-size: 17px;">প্রত্যাহার প্রসেসিং ফি {{ gateways.percent_charge }}% এবং
-                            প্রত্যাহার {{ gateways.processtime }} ঘন্টার মধ্যে একাউন্ট এ পৌছাবে</p>
+                        <p style="color: #4a7f07;text-align: center;font-size: 17px;">প্রত্যাহার সময় সকাল ১০:০০ থেকে বিকাল ০৫:০০ টা পর্যন্ত </p>
+                        <!-- <p style="color: red;text-align: center;font-size: 17px;">প্রত্যাহার প্রসেসিং ফি {{ gateways.percent_charge }}% এবং
+                            প্রত্যাহার {{ gateways.processtime }} ঘন্টার মধ্যে একাউন্ট এ পৌছাবে</p> -->
                     </div>
                     <form @submit.stop.prevent="onSubmit" v-else-if="step == 2">
                         <h4 class="d-block bg-success text-white p-1 my-3">Payment Info</h4>
@@ -98,8 +98,8 @@ export default {
               this.settings = resN.data
         },
         checkAmount(amount) {
-            if (amount > this.user.user.balance - this.settings.new_regitration) {
-                Notification.customError(`You can't Withdraw ${amount}.Because your account balance is ${this.user.user.balance - this.settings.new_regitration}`);
+            if (amount > this.user.user.balance) {
+                Notification.customError(`You can't Withdraw ${amount}.Because your account balance is ${this.user.user.balance}`);
                 this.form.amount = '';
             } else {
                 this.form.amount = amount;
@@ -201,24 +201,26 @@ export default {
 
 
 
-        if(User.dateformat()[9]<=17){
-            if(User.dateformat()[9]>=14){
+        if(User.dateformat()[9]<=16){
+            if(User.dateformat()[9]>=10){
 
                 setTimeout(() => {
                     if(!this.form.method){
-                        alert('Please add Bank card first');
+                        Notification.customError('ব্যাংক অ্যাকাউন্ট অ্যাড করুন');
+
                         this.$router.push({ name: 'bankAccount' });
                     }
                 }, 5000);
             }else{
-            alert('প্রত্যাহার সময় সপ্তাহের সোমবার থেকে শুক্রবার দুপর ০২:০০ থেকে রাত ০৬:০০ টা পর্যন্ত')
+                Notification.customError('প্রত্যাহার সময় সকাল ১০:০০ থেকে বিকাল ০৫:০০ টা পর্যন্ত');
+            // alert('')
 
                 this.$router.push({ name: 'Authuser' });
 
 
             }
         }else{
-            alert('প্রত্যাহার সময় সপ্তাহের সোমবার থেকে শুক্রবার দুপর ০২:০০ থেকে রাত ০৬:০০ টা পর্যন্ত')
+            Notification.customError('প্রত্যাহার সময় সকাল ১০:০০ থেকে বিকাল ০৫:০০ টা পর্যন্ত');
             this.$router.push({ name: 'Authuser' });
 
         }

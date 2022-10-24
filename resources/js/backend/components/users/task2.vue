@@ -55,14 +55,15 @@ export default {
 
 
         if(User.dateformat()[9]<=23){
-            if(User.dateformat()[9]>=14){
+            if(User.dateformat()[9]>=10){
                 // this.$router.push({ name: 'Authuser' });
             }else{
-                alert('কাজের সময় দুপূর ০২:০০ থেকে রাত ১২:০০ টা পর্যন্ত')
+                Notification.customError('কাজের সময় সকাল ১০:০০ থেকে রাত ১২:০০ টা পর্যন্ত');
+
                 this.$router.push({ name: 'Authuser' });
             }
         }else{
-            alert('কাজের সময় দুপূর ০২:০০ থেকে রাত ১২:০০ টা পর্যন্ত')
+            Notification.customError('কাজের সময় সকাল ১০:০০ থেকে রাত ১২:০০ টা পর্যন্ত');
             this.$router.push({ name: 'Authuser' });
         }
 

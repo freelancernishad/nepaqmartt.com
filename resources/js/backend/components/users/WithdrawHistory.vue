@@ -21,8 +21,8 @@
                 <div class="recordDiv col-md-6" v-for="rech in row" :key="'rech'+rech.id">
 
 
-                    <div class="card text-white" :style="[rech.status=='pending' ? {'background': 'red'} : {'background': 'green'}]" style="margin-bottom: 20px">
-                        <div class="card-header">
+                    <div class="card text-dark" style="margin-bottom: 20px">
+                        <div class="card-header text-white" :style="[rech.status=='pending' ? {'background': 'red'} : {'background': 'green'}]">
                             <h5 class="card-title">{{ $t('Recharge_amount.value') }} {{ rech.amount }} </h5>
                         </div>
                         <div class="card-body">

@@ -13,7 +13,7 @@
             <div class="text-center">
                 <img style="width: 126px;margin-bottom: 20px;;float: center;" :src="$asseturl+'frontend/img/logos.png?ver=1.0'" alt="">
             </div>
-            <h2 class="text-center" style="font-size:30px;    margin-bottom: 16px;">{{ $t('Register.value') }}</h2>
+            <!-- <h2 class="text-center" style="font-size:30px;    margin-bottom: 16px;">{{ $t('Register.value') }}</h2> -->
 
             <form @submit.prevent='register' style="padding-bottom: 70px;">
 
@@ -90,6 +90,9 @@
                 <span style="color:green" v-else-if="refer==1">Congratulations,Refer code is Valid</span>
                 <span style="color:red" v-else-if="refer==2">Opps,Refer code is Invalid</span>
                 <input type="test" v-model="form.ref_by" placeholder="Please enter recommendation code" @input="refercheck" required > -->
+<!--
+
+
                 <div class="d-flex position-relative">
                     <input type="text" v-model="captcha" required="true" :placeholder="$t('Enter_Captcha.value')"
                         class="contact-frm active">
@@ -99,7 +102,10 @@
                             {{ genaratedCaptcha }}
                         </span>
                     </button>
-                </div>
+                </div> -->
+
+
+
                 <!-- <button class="button" v-bind:disabled="btndis" v-on:click="clicked">Submit</button> -->
                 <input type="checkbox" class="checkbox" checked> <span> {{ $t('Rgis_Terms.value') }}</span>
                 <input type="submit" :value="$t('Register.value')" class="submit">
@@ -202,7 +208,7 @@ export default {
             // if(localStorage.getItem('dmdevice')){
             //     Notification.customError(`This device has already have an account!`);
             // }else{
-            if (this.genaratedCaptcha === this.captcha) {
+            // if (this.genaratedCaptcha === this.captcha) {
                 // if(this.usernameMatch!=2){
                 //     Notification.customError('please Enter deferent username');
                 // }else{
@@ -237,9 +243,9 @@ export default {
                     }
                 }
                 // }
-            } else {
-                Notification.customError('Captcha does not match!');
-            }
+            // } else {
+            //     Notification.customError('Captcha does not match!');
+            // }
             // }
         }
     }

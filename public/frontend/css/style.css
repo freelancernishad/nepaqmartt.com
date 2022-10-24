@@ -33,7 +33,7 @@ a {
 	margin-right: 4px;
 }
 marquee {
-    color: #ee0202;
+    color: #0e9120;
     font-size: 12px;
     line-height: 16px;
   }
@@ -82,7 +82,7 @@ padding-top: 9px;
 }
 
 .task{
-	background: rgb(14, 174, 47) none repeat scroll 0% 0%;
+	background: #5d9a0f none repeat scroll 0% 0%;
     padding: 3px;
 }
 .task h4 {
@@ -118,7 +118,7 @@ padding-top: 9px;
     width: 100%;
 }
 .task span {
-	background: rgb(219, 57, 85) none repeat scroll 0% 0%;
+	background: rgb(27 110 130 / 0%) none repeat scroll 0% 0%;
 	color: #fff;
 	padding: 4px 7px;
 	 margin-top: 3px;
@@ -175,7 +175,7 @@ padding-top: 9px;
 
 }
 #topbar {
-    background: #c5380e;
+    background: #79d800;
     text-align: center;
     color: #ffffff;
 	font-size: 15px;
@@ -615,7 +615,7 @@ input:focus {
 #btn-area a {
 	text-align: center;
 	padding: 8px 0;
-	background: rgb(191, 15, 15) none repeat scroll 0% 0%;
+	background: #79d800 none repeat scroll 0% 0%;
 	font-size: 14px;
 	color: #fff;
 	display: block;
@@ -735,7 +735,7 @@ background: #ee0a24;
 	padding-right: 0;
 	font-size: 12px;
 	color: #fff;
-	background: #40619D;
+	background: #04132e;
 	display: inline-block;
 }
 .link .copy {
@@ -744,7 +744,7 @@ background: #ee0a24;
 	padding: 9px;
 	background: #fff;
 	color: #1989fa;
-	border: 10px solid #40619D;
+	border: 10px solid #04132e;
 }
 .link {
 	width: 287px;
@@ -931,8 +931,8 @@ padding-bottom: 30px;
 	font-size: 14px;
 	line-height: 24px;
 	border-radius: 3px;
-	background-color: #2f3848;
-	color: #fff;
+    background-color: #79d800;
+    color: #000;
 	text-align: center;
 	display: block;
 	font-weight: 400;
@@ -944,4 +944,28 @@ margin-top: 25px;
 }
 #account-form {
 	padding-bottom: 50px;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #0e6f1b !important;
+    background-color: #5aab131f;
+    background-clip: padding-box;
+    border: 1px solid #316405cd !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.form-control:focus {
+    color: #212529;
+    background-color: #63b81936 !important;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0 rgb(13 110 253 / 25%);
 }

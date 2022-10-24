@@ -12,21 +12,21 @@
         </section>
 
 
-<!--
+
     <section id="slider">
         <img width="100%" :src="slideimage" alt="">
-    </section> -->
+    </section>
 
 
     <section id="marquee">
       <div class="container-fluid">
         <div class="marquee-area">
           <div class="left-img">
-            <img :src="$asseturl+'frontend/img/notice_icon.png'" alt="icon" />
+            <i class="fas fa-bullhorn" style="font-size: 28px;color: #0e9120;"></i>
           </div>
           <marquee>{{ settings.notice }}</marquee
           >
-          <div class="button right">Notice</div>
+          <!-- <div class="button right">Notice</div> -->
         </div>
       </div>
     </section>
@@ -43,9 +43,9 @@
 
             <div class="col-md-6">
                 <router-link :to="{name:'Recharge'}">
-                <div class="card" style="    background: #b0b00a; margin-bottom: 22px;">
+                <div class="card" style="    background: #79d800; margin-bottom: 22px;">
                     <div class="card-body">
-                        <img width="100%" :src="$asseturl+'frontend/img/recharge.png'" alt="tab" />
+                        <i class="fas fa-download text-white" style="font-size:35px"></i>
                         <h5 class="card-title text-white">{{ $t('Recharge.value') }}</h5>
                     </div>
                 </div>
@@ -57,9 +57,9 @@
 
             <div class="col-md-6">
                 <router-link :to="{name:'Withdraw'}">
-                <div class="card" style="    background: #960baf; margin-bottom: 22px;">
+                <div class="card" style="    background: #79d800; margin-bottom: 22px;">
                     <div class="card-body">
-                        <img width="100%" :src="$asseturl+'frontend/img/withdraw.png'" alt="tab" />
+                        <i class="fas fa-upload text-white" style="font-size:35px"></i>
                         <h5 class="card-title text-white">{{ $t('Withdraw.value') }}</h5>
                     </div>
                 </div>
@@ -68,9 +68,9 @@
 
             <div class="col-md-6">
                 <router-link :to="{name:'invite'}">
-                <div class="card" style="    background: #0b37a6bf; margin-bottom: 22px;">
+                <div class="card" style="    background: #79d800; margin-bottom: 22px;">
                     <div class="card-body">
-                        <img width="100%" :src="$asseturl+'frontend/img/invite.png'" alt="tab" />
+                        <i class="fas fa-plus text-white" style="font-size:35px"></i>
                         <h5 class="card-title text-white">{{ $t('Invite.value') }}</h5>
                     </div>
                 </div>
@@ -78,52 +78,6 @@
             </div>
 
 
-            <div class="col-md-6"  v-if="settings.telegroup">
-                <a :href="settings.telegroup">
-                <div class="card" style="    background: #0baf4a; margin-bottom: 22px;">
-                    <div class="card-body">
-                        <img width="100%" :src="$asseturl+'frontend/img/Telegram.png'" alt="tab" />
-                        <h5 class="card-title text-white">{{ $t('Official_Telegram_Group.value') }}</h5>
-                    </div>
-                </div>
-            </a>
-            </div>
-
-
-            <div class="col-md-6" v-if="settings.telesupport1">
-                <a :href="settings.telesupport1">
-                <div class="card" style="    background: #0084d9; margin-bottom: 22px;">
-                    <div class="card-body">
-                        <img width="100%" :src="$asseturl+'frontend/img/customerSupport.png'" alt="tab" />
-                        <h5 class="card-title text-white">{{ $t('elpLine_Support.value') }}</h5>
-                    </div>
-                </div>
-            </a>
-            </div>
-
-
-            <div class="col-md-6" v-if="settings.telesupport2">
-                <a :href="settings.telesupport2">
-                <div class="card" style="    background: #0084d9; margin-bottom: 22px;">
-                    <div class="card-body">
-                        <img width="100%" :src="$asseturl+'frontend/img/customerSupport.png'" alt="tab" />
-                        <h5 class="card-title text-white">{{ $t('elpLine_Support.value') }}</h5>
-                    </div>
-                </div>
-            </a>
-            </div>
-
-
-            <div class="col-md-6" v-if="settings.telesupport3">
-                <a :href="settings.telesupport3">
-                <div class="card" style="    background: #0084d9; margin-bottom: 22px;">
-                    <div class="card-body">
-                        <img width="100%" :src="$asseturl+'frontend/img/customerSupport.png'" alt="tab" />
-                        <h5 class="card-title text-white">{{ $t('elpLine_Support.value') }}</h5>
-                    </div>
-                </div>
-            </a>
-            </div>
 
 
 
@@ -142,29 +96,27 @@
         <div class="row">
 
 
-          <div class="col-12 p-0" v-for="plan in row" :key="plan.id">
-            <div class="card" :style="{background: 'linear-gradient(rgb(197 25 25 / 91%), rgb(58 8 8 / 59%)),url('+$asseturl+'frontend/img/vipBg.png)',backgroundPosition: 'center center',backgroundSize: 'contain'}"  style="margin-bottom: 20px;">
-                <div class="card-header d-flex justify-content-between">
-                    <h5 class="card-title text-white">{{ plan.name }}</h5>
-                    <p class="text-white">{{ plan.totalorder }} Orders</p>
-                </div>
-                <div class="card-body">
-                    <span class="planPack text-white"  style="width:40%">কমিশন রেট {{ parseFloat(plan.comission_rate*plan.totalorder).toFixed(2) }}% ({{ plan.start_balance }}TK-{{ plan.end_balance }}TK)</span>
+
+            <div class="col-12 p-0" v-for="plan in row" :key="plan.id">
+            <div class="task me-1 mb-2">
+              <a href="javascript:void(0)" class="plansdesign">
+                <h4 class="planPack"  style="width:20%" >{{ plan.name }}</h4>
+                <div class="vip-area planPack" style="width:40%">
+
+                  <img class="lock" v-if="plan.id==user.user.plan_id" :src="$asseturl + 'frontend/img/unlock.png'" alt="unlocked" />
+
+                  <img class="lock" v-else :src="$asseturl + 'frontend/img/lock.png'" alt="unlocked" />
+
+                  <p>{{ plan.totalorder }} Orders</p>
 
                 </div>
+                <span class="planPack"  style="width:40%">কমিশন রেট {{ parseFloat(plan.comission_rate*plan.totalorder).toFixed(2) }}% ({{ plan.start_balance }}TK-{{ plan.end_balance }}TK)</span>
+              </a>
             </div>
-
-
-
-
           </div>
 
-<!--
-          <div class="col-md-12">
-            <h3 class="text-center">Our Partners</h3>
-            <hr>
-            <img width="100%" :src="$asseturl+'frontend/img/partners.jpeg'" alt="">
-          </div> -->
+
+
 
         </div>
       </div>
@@ -217,10 +169,10 @@ export default {
                 user:{}
             },
             slider:[
-            this.$asseturl+'frontend/img/Daily-Task-Commisson-Chart.png',
-            this.$asseturl+'frontend/img/Refar-Deposit-Bonus.png',
-            this.$asseturl+'frontend/img/Refar-Task-income.png',
-            this.$asseturl+'frontend/img/Self-Deposit.png'
+            this.$asseturl+'frontend/img/slide1.jpeg',
+            // this.$asseturl+'frontend/img/Refar-Deposit-Bonus.png',
+            // this.$asseturl+'frontend/img/Refar-Task-income.png',
+            // this.$asseturl+'frontend/img/Self-Deposit.png'
             ]
         }
     },

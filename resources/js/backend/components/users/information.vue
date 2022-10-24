@@ -13,11 +13,11 @@
 
         <section id="listmenus" class="info">
             <div class="container-fluid">
-                <ul>
+                <ul style="list-style:none" class="p-0">
                     <!-- <li><img src="img/users.png" class="icon"> Avatar <img src="img/11.png" class="userimg"></li> -->
                     <!-- <li><a href="javascript:void(0)"><img src="img/ph.png" class="icon"> Mobile Number <span>{{ row.user.mobile }}</span> </a></li> -->
-                    <li><router-link :to="{name:'bankAccount'}"><img src="img/wa.png" class="icon"> {{ $t('Bank_Card.value') }} <span>  </span></router-link> </li>
-                    <li><router-link :to="{name:'RechangePass'}"><img src="img/passs.png" class="icon"> {{ $t('Password_Management.value') }} </router-link>
+                    <li style="padding: 7px 5px;background: #5aff00;margin: 1px;"><router-link class="text-dark" :to="{name:'bankAccount'}"> {{ $t('Bank_Card.value') }} <span>  </span></router-link> </li>
+                    <li style="padding: 7px 5px;background: #5aff00;margin: 1px;"><router-link class="text-dark" :to="{name:'RechangePass'}"> {{ $t('Password_Management.value') }} </router-link>
                     </li>
 
                 </ul>

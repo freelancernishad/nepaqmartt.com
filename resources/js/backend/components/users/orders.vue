@@ -10,10 +10,10 @@
         <section id="listmenus">
             <div role="feed" class="van-list row" aria-busy="true">
                 <div class="col-md-6" v-for="task in row.task" :key="'task'+task.id">
-                    <div class="card" :style="{backgroundColor:'#0c407a'}" style="margin-bottom: 20px">
+                    <div class="card" :style="{backgroundColor:'#fffff'}" style="margin-bottom: 20px">
                         <div class="card-body">
-                            <p class="text-white">Date： {{ dateformatglobal(task.created_at)[6] }}</p>
-                            <p class="text-white">Task Comisition： {{ task.task_comisition }} TK</p>
+                            <p class="text-dark">Date： {{ dateformatglobal(task.created_at)[6] }}</p>
+                            <p class="text-dark">Task Comisition： {{ task.task_comisition }} TK</p>
                         </div>
                     </div>
                 </div>

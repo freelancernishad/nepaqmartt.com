@@ -329,14 +329,14 @@ list-style: none;
 }
 
 .form {
-	background: #ffffffdb;
+	background: #00aed8;
 	padding: 27px;
 	/* border-radius: .8rem .8rem 0 0; */
-	height: 100vh;
+	/* height: 100vh; */
 }
 
 .form h2{
-	color: #6a98ff;
+	color: #79d800;
 	font-size: 22px;
 	margin-bottom: 1.3rem;
 }
@@ -403,7 +403,8 @@ input:focus {
 .form .submit {
 	width: 100%;
 	font-size: 15px;
-    background: linear-gradient(45deg, #0a3477, #b80909);
+    /* background: linear-gradient(45deg, #0a3477, #b80909); */
+    background: #79D800;
 	color: #fff;
 	border-radius: 9px;
 	text-align: center;
@@ -415,7 +416,8 @@ input:focus {
 }
 .form .submit:hover {
     transition: all 0.5s;
-    background: linear-gradient(45deg, #b80909,#0a3477);
+    background: rebeccapurple;
+    /* background: linear-gradient(45deg, #b80909,#0a3477); */
 
 }
 #bigbg .form a {
@@ -465,12 +467,13 @@ input:focus {
 #bigbg .form a.reg {
     background: none;
     color: #fff;
-    background: linear-gradient(45deg, #b80909 , #0a3477);
+    background: #459279;
+    /* background: linear-gradient(45deg, #b80909 , #0a3477); */
     padding: 8px 1px;
     border-radius: 6px;
   }
 #bigbg .form a.reg:hover {
-    background: linear-gradient(45deg, #0a3477, #b80909);
+    background: rebeccapurple;
 
 
   }

@@ -62,12 +62,14 @@
                             </ul>
                         </div>
                         <h4 class="d-block bg-success text-white p-1 my-3">Recharge Info</h4>
-                        <div class="form-group" v-if="form.method=='USDT'">
+
+                        <div class="form-group">
                             <label for="">Screenshot</label>
                             <input class="form-control form-control-lg" id="formFileLg"
                                 @change="FileSelected($event, 'screenshot')" type="file">
                             <img class="img-thumbnail" :src="form.screenshot" alt="">
                         </div>
+
                         <div class="form-group">
                             <label for="">Sender Number</label>
                             <input type="tel" class="form-control" v-model="form.sender" required>

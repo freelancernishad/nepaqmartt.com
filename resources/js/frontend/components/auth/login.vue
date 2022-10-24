@@ -24,7 +24,7 @@
             <img style="width: 126px;margin-bottom: 20px;float: center;" :src="$asseturl+'frontend/img/logos.png?ver=1.0'" alt="">
         </div>
 
-        <h2 class="text-center" style="font-size:30px;margin-bottom: 16px;">{{ $t('Welcome.value') }}</h2>
+        <!-- <h2 class="text-center" style="font-size:30px;margin-bottom: 16px;">{{ $t('Welcome.value') }}</h2> -->
 
         <form @submit.prevent='login' style="padding-bottom: 70px;">
             <select v-model="country" class="form-control" placeholder="Please Your Country"
@@ -41,7 +41,7 @@
     font-size: 16px;">{{ mobileCode }}</span>
 
             <input type="tel" style="padding-left: 106px;" :placeholder="$t('Enter_phone_number.value')" v-model="form.mobile" required><span><img :src="$asseturl+'frontend/img/user.png'" ></span></div>
-           <div class="input"> <input type="password" :placeholder="$t('Enter_Password.value')" v-model="form.password" required><span><img :src="$asseturl+'frontend/img/pass.png'" ></span></div>
+           <div class="input"> <input type="password" style="padding-left: 53px;" :placeholder="$t('Enter_Password.value')" v-model="form.password" required><span><img :src="$asseturl+'frontend/img/pass.png'" ></span></div>
            <!-- <input type="checkbox" class="checkbox" > <span> Remember Me</span> -->
 
 
@@ -150,7 +150,7 @@ export default {
 
                         }
                     })
-                    .catch(error => this.errors = error.response.data.errors)
+                    .catch()
 
 
 
@@ -182,7 +182,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style>
 .languagechange {
     width: 100px;
     float: right;
@@ -260,6 +260,30 @@ background: #eee;
 .form-item input:focus + label{
   color: blue
 }
+
+
+.form input, .form select {
+    display: block;
+    box-sizing: border-box;
+    min-width: 100%;
+    margin-bottom: 16px;
+    padding: 8px 10px;
+    color: #3e18b8;
+    text-align: left;
+    background-color: transparent;
+    border: .02667rem solid #cacaca;
+    /* border-radius: .3rem; */
+    font-size: 14px;
+    border: 0 !important;
+    border-bottom: 1px solid #79D800 !important;
+}
+
+input:focus {
+    border: 2px solid #734ef99e !important;
+    outline: none;
+}
+
+
 
 </style>
 
