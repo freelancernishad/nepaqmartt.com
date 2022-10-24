@@ -38,7 +38,7 @@
                     </div>
                     <div class="col-3 p-0" style="width: 20% !important;">
                         <div class="menu">
-                            <a :href="$asseturl+'JMY_EARN_MONEY_16135694.apk'">
+                            <a :href="$asseturl+'NEPA_Q_MART_16182413.apk'">
                                 <i class="fas fa-mobile-alt fa-fw" style="font-size: 30px;color: green;"></i>
                                 <p>App</p>
                             </a>
