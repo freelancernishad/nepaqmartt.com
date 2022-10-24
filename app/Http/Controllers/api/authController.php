@@ -81,8 +81,8 @@ class authController extends Controller
         // }else{
         //     $username =  '100000';
         // }
-
-             $username =  substr($r->name, 0, 4).rand(10000,99909);
+            $name = str_replace(" ", "_", $r->name);
+             $username =  substr($name, 0, 4).rand(10000,99909);
 
         $clientIP = request()->ip();
 
