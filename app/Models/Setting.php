@@ -22,5 +22,9 @@ class Setting extends Model
         'worktime',
         'withdrawtext',
         'recharagetext',
+        'slide1',
+        'slide2',
+        'slide3',
+        'slide4',
     ];
 }

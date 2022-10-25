@@ -169,7 +169,7 @@ export default {
                 user:{}
             },
             slider:[
-            this.$asseturl+'frontend/img/slide1.jpeg',
+            // this.$asseturl+'frontend/img/slide1.jpeg',
             // this.$asseturl+'frontend/img/Refar-Deposit-Bonus.png',
             // this.$asseturl+'frontend/img/Refar-Task-income.png',
             // this.$asseturl+'frontend/img/Self-Deposit.png'
@@ -192,6 +192,10 @@ export default {
 
         var resN = await this.callApi('get',`/api/admin/setting`,[])
               this.settings = resN.data
+            if(resN.data.slide1)this.slider.push(resN.data.slide1);
+            if(resN.data.slide2)this.slider.push(resN.data.slide2);
+            if(resN.data.slide3)this.slider.push(resN.data.slide3);
+            if(resN.data.slide4)this.slider.push(resN.data.slide4);
 
 
             var res = await this.callApi('get',`/api/admin/plan`,[])
