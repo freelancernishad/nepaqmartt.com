@@ -40,11 +40,11 @@
                             <div class="col-6 amount_item" @click="amount = 25000"><span>{{ 25000/rates }}</span></div>
                         </div>
                         <button class="btn btn-info" @click="nextFun(2)">Next</button>
-                        <p style="color: red;text-align: center;font-size: 17px;">{{ settings.recharagetext }}</p>
+                        <p style="color: rgb(74, 127, 7);text-align: center;font-size: 17px;">{{ settings.recharagetext }}</p>
                     </div>
                     <form @submit.stop.prevent="onSubmit" v-else-if="step == 2">
                         <h4 class="d-block bg-success text-white p-1 my-3">Payment Info</h4>
-                        <p style="color: red;font-size: 17px;">বিঃদ্রঃ অবশই সেন্ড মানি করবেন এবং রেফারেন্স এ আপনার Username দিবেন ।</p>
+                        <p style="color: rgb(74, 127, 7);font-size: 17px;">বিঃদ্রঃ অবশই সেন্ড মানি করবেন এবং রেফারেন্স এ আপনার Username দিবেন ।</p>
                         <div class="patment_info">
                             <ul class="list-unstyled">
                                 <li class="li"><span>{{ form.method }} Account</span><span>
