@@ -31,13 +31,12 @@
                             <div class="col-6 amount_item" @click="amount = 500"><span>{{ 500 }} USD</span></div>
                         </div>
                         <div class="row" v-else-if="payMethods">
-                            <div class="col-6 amount_item" @click="amount = 700"><span>{{ 700/rates }}</span> </div>
+                            <div class="col-6 amount_item" @click="amount = 400"><span>{{ 400/rates }}</span> </div>
+                            <div class="col-6 amount_item" @click="amount = 500"><span>{{ 500/rates }}</span> </div>
                             <div class="col-6 amount_item" @click="amount = 1000"><span>{{ 1000/rates }}</span></div>
                             <div class="col-6 amount_item" @click="amount = 2000"><span>{{ 2000/rates }}</span></div>
                             <div class="col-6 amount_item" @click="amount = 5000"><span>{{ 5000/rates }}</span></div>
-                            <div class="col-6 amount_item" @click="amount = 10000"><span>{{ 10000/rates }}</span></div>
-                            <div class="col-6 amount_item" @click="amount = 20000"><span>{{ 20000/rates }}</span></div>
-                            <div class="col-6 amount_item" @click="amount = 25000"><span>{{ 25000/rates }}</span></div>
+
                         </div>
                         <button class="btn btn-info" @click="nextFun(2)">Next</button>
                         <p style="color: rgb(74, 127, 7);text-align: center;font-size: 17px;">{{ settings.recharagetext }}</p>
