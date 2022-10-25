@@ -13,6 +13,7 @@ class Setting extends Model
         'notice',
         'new_regitration',
         'refer_bonus',
+        'ref_count',
         'a',
         'min_deposit',
         'telegroup',

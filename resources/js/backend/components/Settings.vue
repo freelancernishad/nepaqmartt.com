@@ -52,6 +52,15 @@
                                         </div>
                                     </div>
 
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Refer Limit</label>
+                                            <!-- <vue-editor v-model="form.notice"></vue-editor> -->
+                                            <input v-model="form.ref_count" class="form-control"/>
+
+                                        </div>
+                                    </div>
+
 
                                     <div class="col-md-6">
                                         <div class="form-group">
