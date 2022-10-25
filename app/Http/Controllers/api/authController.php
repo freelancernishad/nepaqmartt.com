@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Plan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -89,6 +90,7 @@ class authController extends Controller
         // $users = User::where('ip',$clientIP)->count();
         // if($users>0) return 444;
 
+            $totalorder = Plan::first();
 
         $data = [];
         $data = $r->except(['password','password_confirmation']);
@@ -97,7 +99,7 @@ class authController extends Controller
         $data['email'] =time().'@gmail.com';
         $bonus = settings()->new_regitration;
         $data['balance'] =$bonus;
-        $data['task'] =10;
+        $data['task'] =$totalorder->totalorder;
         $data['plan_id'] =planId($bonus);
         $data['ip'] = $clientIP;
         $data['status'] ='active';
