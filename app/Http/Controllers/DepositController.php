@@ -1,16 +1,19 @@
 <?php
 namespace App\Http\Controllers;
+use Carbon\Carbon;
+use App\Models\Plan;
+use App\Models\Task;
+use App\Models\User;
+use App\Models\Level;
 use App\Models\Deposit;
 use App\Models\Gateway;
-use App\Models\Level;
-use App\Models\Plan;
 use App\Models\Transition;
-use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\File;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\File;
+
 class DepositController extends Controller
 {
 
@@ -187,10 +190,10 @@ setInterval(function(){
         if ($status == 'approved') {
         $userid = $deposit->user_id;
         $methodid = $deposit->method;
-        $user = User::find($userid);
+          $user = User::find($userid);
         $DPamount =  $deposit->amount;
 
-
+         $todayCompleted =  Task::where(['user_id'=>$userid])->whereDate('created_at', Carbon::today())->count();
 
 
         $levelOneCommisition =  levelCommistion('Level1', $DPamount);
@@ -244,10 +247,23 @@ setInterval(function(){
                 'plan_id' => planId($amount),
                 'balance' => $amount,
             ]);
+
+            $user = User::find($userid);
+
+            $plan_id = $user->plan_id;
+             $totalorder = Plan::find($plan_id)->totalorder-$todayCompleted;
+          $user->update([
+           'task' => $totalorder,
+            ]);
+
         }
+
+
+
         transitionCreate($userid,$amount,0,$amount,'increase',$deposit->trx,'rechage','');
     }
-        return $deposit->update(['status' => $status]);
+         $deposit->update(['status' => $status]);
+
     }
     /**
      * Show the form for creating a new resource.
