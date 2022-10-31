@@ -49,7 +49,7 @@
 
 
 
-<script src="{{ asset('js/backend.js?ver=1.0.4') }}"></script>
+<script src="{{ asset('js/backend.js?ver=1.0.5') }}"></script>
 
 
 
