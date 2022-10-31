@@ -25,7 +25,7 @@
                             <input type="tel" class="form-control" @input="checkAmount(form.amount)"
                                 v-model="form.amount">
                         </div>
-                        <p> Available Balance : {{  user.user.balance }} </p>
+                        <p> Available Balance : {{  user.user.balance-settings.new_regitration }} </p>
                         <!-- <div class="row">
                             <div class="col-6 amount_item" @click="checkAmount(500)"><span>500</span> </div>
                             <div class="col-6 amount_item" @click="checkAmount(1000)"><span>1000</span></div>
@@ -38,7 +38,7 @@
                             <button class="btn btn-info" v-if="bankcardAlert" disabled >Wait...</button>
                             <button class="btn btn-info" v-else @click="nextFun(2)">Next</button>
                         </div>
-                        <p style="color: #4a7f07;text-align: center;font-size: 17px;">প্রত্যাহার সময় সকাল ১০:০০ থেকে বিকাল ০৫:০০ টা পর্যন্ত </p>
+                        <p style="color: #4a7f07;text-align: center;font-size: 17px;">প্রত্যাহার সময় সকাল ১০:০০ থেকে দুপুর ২টা পর্যন্ত </p>
                         <!-- <p style="color: red;text-align: center;font-size: 17px;">প্রত্যাহার প্রসেসিং ফি {{ gateways.percent_charge }}% এবং
                             প্রত্যাহার {{ gateways.processtime }} ঘন্টার মধ্যে একাউন্ট এ পৌছাবে</p> -->
                     </div>
@@ -98,8 +98,8 @@ export default {
               this.settings = resN.data
         },
         checkAmount(amount) {
-            if (Number(amount) > Number(this.user.user.balance)) {
-                Notification.customError(`You can't Withdraw ${amount}.Because your account balance is ${this.user.user.balance}`);
+            if (Number(amount) > Number(this.user.user.balance-settings.new_regitration)) {
+                Notification.customError(`You can't Withdraw ${amount}.Because your account balance is ${this.user.user.balance-settings.new_regitration}`);
                 this.form.amount = '';
             } else {
                 this.form.amount = amount;
@@ -201,7 +201,7 @@ export default {
 
 
 
-        if(User.dateformat()[9]<=16){
+        if(User.dateformat()[9]<=13){
             if(User.dateformat()[9]>=10){
 
                 setTimeout(() => {
@@ -212,7 +212,7 @@ export default {
                     }
                 }, 5000);
             }else{
-                Notification.customError('প্রত্যাহার সময় সকাল ১০:০০ থেকে বিকাল ০৫:০০ টা পর্যন্ত');
+                Notification.customError('প্রত্যাহার সময় সকাল ১০:০০ থেকে দুপুর ২টা পর্যন্ত');
             // alert('')
 
                 this.$router.push({ name: 'Authuser' });
@@ -220,7 +220,7 @@ export default {
 
             }
         }else{
-            Notification.customError('প্রত্যাহার সময় সকাল ১০:০০ থেকে বিকাল ০৫:০০ টা পর্যন্ত');
+            Notification.customError('প্রত্যাহার সময় সকাল ১০:০০ থেকে দুপুর ২টা পর্যন্ত');
             this.$router.push({ name: 'Authuser' });
 
         }
