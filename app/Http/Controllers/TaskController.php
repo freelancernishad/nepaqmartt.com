@@ -70,9 +70,22 @@ class TaskController extends Controller
 
 
         $user_id = $request->user_id;
-        $task_comisition = $request->task_comisition;
+        // $task_comisition = $request->task_comisition;
 
      $user = User::find($user_id);
+
+
+
+     $user = User::find($user_id);
+     $plan_id = $user->plan_id;
+    $plans = Plan::find($plan_id);
+
+ $task_comisition = (($user->balance * $plans->comission_rate) / 100);
+ $task_comisition =  number_format($task_comisition,2);
+
+
+
+
 
 $registerdate =  date('d-m-Y', strtotime($user->created_at));
 $todaydate =  date('d-m-Y');
@@ -155,7 +168,10 @@ if($tascount>0){
     transitionCreate($user_id,$task_comisition,0,$task_comisition,'increase',quickRandom(10),'task_comisition','');
 
 
-    $data = $request->all();
+    $data = [
+        'task_comisition'=>$task_comisition,
+        'user_id'=>$user_id
+    ];
 
 
     $data['date'] = date('Y-m-d');
