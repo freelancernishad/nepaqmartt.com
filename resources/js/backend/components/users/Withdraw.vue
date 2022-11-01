@@ -98,7 +98,7 @@ export default {
               this.settings = resN.data
         },
         checkAmount(amount) {
-            if (Number(amount) > Number(this.user.user.balance-settings.new_regitration)) {
+            if (Number(amount) > this.user.user.balance-settings.new_regitration) {
                 Notification.customError(`You can't Withdraw ${amount}.Because your account balance is ${this.user.user.balance-settings.new_regitration}`);
                 this.form.amount = '';
             } else {
