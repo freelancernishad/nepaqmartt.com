@@ -172,28 +172,28 @@ public function referfunction($id)
         if($task){
             if($status=='all'){
                 // return User::with(['Plans'])->orderBy('id','DESC') ->where(['username'=> $username])->paginate(20);
-                return User::with(['Plans'])->orderBy('id','DESC')->where('task', 'like', '%'.$task.'%')->paginate(20);
+                return User::with(['Plans'])->orderBy('created_at','DESC')->where('task', 'like', '%'.$task.'%')->paginate(20);
             }else{
                 // return User::with(['Plans'])->orderBy('id','DESC') ->where(['username'=> $username])->where(['status'=>$status])->paginate(20);
-                return User::with(['Plans'])->orderBy('id','DESC') ->where('task', 'like', '%'.$task.'%')->where(['status'=>$status])->paginate(20);
+                return User::with(['Plans'])->orderBy('created_at','DESC') ->where('task', 'like', '%'.$task.'%')->where(['status'=>$status])->paginate(20);
             }
         }
 
         if($username){
             if($status=='all'){
                 // return User::with(['Plans'])->orderBy('id','DESC') ->where(['username'=> $username])->paginate(20);
-                return User::with(['Plans'])->orderBy('id','DESC')->where('username', 'like', '%'.$username.'%')->paginate(20);
+                return User::with(['Plans'])->orderBy('created_at','DESC')->where('username', 'like', '%'.$username.'%')->paginate(20);
             }else{
                 // return User::with(['Plans'])->orderBy('id','DESC') ->where(['username'=> $username])->where(['status'=>$status])->paginate(20);
-                return User::with(['Plans'])->orderBy('id','DESC') ->where('username', 'like', '%'.$username.'%')->where(['status'=>$status])->paginate(20);
+                return User::with(['Plans'])->orderBy('created_at','DESC') ->where('username', 'like', '%'.$username.'%')->where(['status'=>$status])->paginate(20);
             }
         }
 
         if($status=='all'){
-            return User::with(['Plans'])->orderBy('id','DESC')->paginate(20);
+            return User::with(['Plans'])->orderBy('created_at','DESC')->paginate(20);
 
         }else{
-            return User::with(['Plans'])->orderBy('id','DESC')->where([
+            return User::with(['Plans'])->orderBy('created_at','DESC')->where([
                 'status'=>$status
             ])->paginate(20);
 
