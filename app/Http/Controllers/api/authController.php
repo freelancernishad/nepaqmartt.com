@@ -75,15 +75,16 @@ class authController extends Controller
     {
 
 
-        // $CountUser = User::count();
-        // if($CountUser>0){
-        //     $lastUser = User::latest()->first();
-        //     $username =  intval($lastUser->username)+1;
-        // }else{
-        //     $username =  '100000';
-        // }
-            $name = str_replace(" ", "_", $r->name);
-             $username =  substr($name, 0, 4).rand(10000,99909);
+        $CountUser = User::count();
+        if($CountUser>0){
+            $lastUser = User::latest()->first();
+            $username =  intval($lastUser->username)+1;
+        }else{
+            $username =  '100000';
+        }
+
+            // $name = str_replace(" ", "_", $r->name);
+            //  $username =  substr($name, 0, 4).rand(10000,99909);
 
         $clientIP = request()->ip();
 
