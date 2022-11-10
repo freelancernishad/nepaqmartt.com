@@ -164,8 +164,10 @@ export default {
         async onSubmit() {
             this.con = true
 
-            if(Number(this.form.amount)<Number(this.gateways.min_amount)) {
-                        Notification.customError('Minimum Withdrawal Amount '+this.gateways.min_amount+' BDT');
+            // if(Number(this.form.amount)<Number(this.gateways.min_amount)) {
+            if(Number(this.form.amount)==500) {
+                        // Notification.customError('Minimum Withdrawal Amount '+this.gateways.min_amount+' BDT');
+                        Notification.customError('Minimum and Maximum Withdrawal Amount 500 BDT');
                     }else {
                         var id = localStorage.getItem('userid');
                         this.form['user_id'] = id;

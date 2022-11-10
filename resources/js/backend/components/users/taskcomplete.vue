@@ -133,6 +133,8 @@ export default {
             var res = await this.callApi('post', `/api/admin/task`, this.form);
             if (res.data == 444) {
                 Notification.customError(`You Can't Complete any order Today`);
+            }else if(res.data==1000){
+            Notification.customError(`You Can't Complete any order on Free plan.You need upgrate any plan`);
             } else {
                 Notification.customSuccess('Task Completed');
             }

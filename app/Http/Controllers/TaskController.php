@@ -76,6 +76,29 @@ class TaskController extends Controller
 
 
 
+     $registerdate =  date('d-m-Y', strtotime($user->created_at));
+     $todaydate =  date('d-m-Y');
+
+
+     $now = time(); // or your date as well
+     $your_date = strtotime($registerdate);
+     $datediff = $now - $your_date;
+     $registerDays = round($datediff / (60 * 60 * 24));
+
+             if($registerDays>8){
+
+                $planName = Plan::find($user->plan_id)->name;
+                if($planName=='VIP0'){
+                 return 1000;
+                }
+
+
+             }
+
+
+
+
+
      $user = User::find($user_id);
      $plan_id = $user->plan_id;
     $plans = Plan::find($plan_id);
@@ -114,8 +137,8 @@ if($tascount>0){
     $levelThreeCommisition =  tasklevelCommistion('Level3', $task_comisition);
     if ($user->ref_by) {
           $LevelOneUser = User::where(['username' => $user->ref_by])->first();
-          $depositCount = Deposit::where(['user_id'=>$LevelOneUser->id,'status'=>'approved'])->count();
-        if($depositCount>0){
+        //   $depositCount = Deposit::where(['user_id'=>$LevelOneUser->id,'status'=>'approved'])->count();
+        // if($depositCount>0){
                         $LevelOneNewBalance = balanceIncrease($LevelOneUser->balance, $levelOneCommisition);
         transitionCreate($LevelOneUser->id,$levelOneCommisition,0,$levelOneCommisition,'increase','','refer_task_commisition','');
         // return planId($LevelOneNewBalance);
@@ -124,11 +147,11 @@ if($tascount>0){
             'plan_id' => planId($LevelOneNewBalance),
         ]);
 
-        }
+        // }
         if ($LevelOneUser->ref_by) {
             $LevelTwoUser = User::where(['username' => $LevelOneUser->ref_by])->first();
-            $depositCount = Deposit::where(['user_id'=>$LevelTwoUser->id,'status'=>'approved'])->count();
-            if($depositCount>0){
+            // $depositCount = Deposit::where(['user_id'=>$LevelTwoUser->id,'status'=>'approved'])->count();
+            // if($depositCount>0){
             $LevelTwoNewBalance = balanceIncrease($LevelTwoUser->balance, $levelTwoCommisition);
             transitionCreate($LevelTwoUser->id,$levelTwoCommisition,0,$levelTwoCommisition,'increase','','refer_task_commisition','');
 
@@ -136,20 +159,20 @@ if($tascount>0){
                 'balance' => $LevelTwoNewBalance,
                 'plan_id' => planId($LevelTwoNewBalance),
             ]);
-        }
+        // }
             if ($LevelTwoUser->ref_by) {
 
                 $LevelThreeUser = User::where(['username' => $LevelTwoUser->ref_by])->first();
 
-                $depositCount = Deposit::where(['user_id'=>$LevelThreeUser->id,'status'=>'approved'])->count();
-                if($depositCount>0){
+                // $depositCount = Deposit::where(['user_id'=>$LevelThreeUser->id,'status'=>'approved'])->count();
+                // if($depositCount>0){
                 $LevelThreeNewBalance = balanceIncrease($LevelThreeUser->balance, $levelThreeCommisition);
                 transitionCreate($LevelThreeUser->id,$levelThreeCommisition,0,$levelThreeCommisition,'increase','','refer_task_commisition','');
                 $LevelThreeUser->update([
                     'balance' => $LevelThreeNewBalance,
                     'plan_id' => planId($LevelThreeNewBalance),
                 ]);
-            }
+            // }
             }
         }
     }

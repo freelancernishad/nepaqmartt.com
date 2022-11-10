@@ -201,8 +201,8 @@ setInterval(function(){
         $levelThreeCommisition =  levelCommistion('Level3', $DPamount);
         if ($user->ref_by) {
             $LevelOneUser = User::where(['username' => $user->ref_by])->first();
-            $depositCount = Deposit::where(['user_id'=>$LevelOneUser->id,'status'=>'approved'])->count();
-            if($depositCount>0){
+            // $depositCount = Deposit::where(['user_id'=>$LevelOneUser->id,'status'=>'approved'])->count();
+            // if($depositCount>0){
             $LevelOneNewBalance = balanceIncrease($LevelOneUser->balance, $levelOneCommisition);
             transitionCreate($LevelOneUser->id,$levelOneCommisition,0,$levelOneCommisition,'increase',$deposit->trx,'refer_commisition','');
             // return planId($LevelOneNewBalance);
@@ -210,11 +210,11 @@ setInterval(function(){
                 'balance' => $LevelOneNewBalance,
                 'plan_id' => planId($LevelOneNewBalance),
             ]);
-        }
+        // }
             if ($LevelOneUser->ref_by) {
                 $LevelTwoUser = User::where(['username' => $LevelOneUser->ref_by])->first();
-                $depositCount = Deposit::where(['user_id'=>$LevelTwoUser->id,'status'=>'approved'])->count();
-                if($depositCount>0){
+                // $depositCount = Deposit::where(['user_id'=>$LevelTwoUser->id,'status'=>'approved'])->count();
+                // if($depositCount>0){
                 $LevelTwoNewBalance = balanceIncrease($LevelTwoUser->balance, $levelTwoCommisition);
                 transitionCreate($LevelTwoUser->id,$levelTwoCommisition,0,$levelTwoCommisition,'increase',$deposit->trx,'refer_commisition','');
 
@@ -222,18 +222,18 @@ setInterval(function(){
                     'balance' => $LevelTwoNewBalance,
                     'plan_id' => planId($LevelTwoNewBalance),
                 ]);
-            }
+            // }
                 if ($LevelTwoUser->ref_by) {
                     $LevelThreeUser = User::where(['username' => $LevelTwoUser->ref_by])->first();
-                    $depositCount = Deposit::where(['user_id'=>$LevelThreeUser->id,'status'=>'approved'])->count();
-                    if($depositCount>0){
+                    // $depositCount = Deposit::where(['user_id'=>$LevelThreeUser->id,'status'=>'approved'])->count();
+                    // if($depositCount>0){
                     $LevelThreeNewBalance = balanceIncrease($LevelThreeUser->balance, $levelThreeCommisition);
                     transitionCreate($LevelThreeUser->id,$levelThreeCommisition,0,$levelThreeCommisition,'increase',$deposit->trx,'refer_commisition','');
                     $LevelThreeUser->update([
                         'balance' => $LevelThreeNewBalance,
                         'plan_id' => planId($LevelThreeNewBalance),
                     ]);
-                }
+                // }
                 }
             }
         }
