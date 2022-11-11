@@ -135,6 +135,7 @@ export default {
             this.bankcardAlert = false
         },
         async nextFun(step) {
+            console.log(this.form.amount);
             if (step == 2) {
                 if (this.form.method == '') {
                     Notification.customError('Method is required');
@@ -143,8 +144,10 @@ export default {
                         Notification.customError('Amount is required');
                     } else {
 
-                    if(Number(this.form.amount)<Number(this.gateways.min_amount)) {
-                        Notification.customError('Minimum Withdrawal Amount '+this.gateways.min_amount+' BDT');
+                            // if(Number(this.form.amount)<Number(this.gateways.min_amount)) {
+            if(Number(this.form.amount)>500 || Number(this.form.amount)<500) {
+                        // Notification.customError('Minimum Withdrawal Amount '+this.gateways.min_amount+' BDT');
+                        Notification.customError('Minimum and Maximum Withdrawal Amount 500 BDT');
                     }else {
                         this.step = step;
                         var charge = ((this.form.amount * this.gateways.percent_charge) / 100);
@@ -165,7 +168,7 @@ export default {
             this.con = true
 
             // if(Number(this.form.amount)<Number(this.gateways.min_amount)) {
-            if(Number(this.form.amount)==500) {
+                if(Number(this.form.amount)>500 || Number(this.form.amount)<500) {
                         // Notification.customError('Minimum Withdrawal Amount '+this.gateways.min_amount+' BDT');
                         Notification.customError('Minimum and Maximum Withdrawal Amount 500 BDT');
                     }else {
